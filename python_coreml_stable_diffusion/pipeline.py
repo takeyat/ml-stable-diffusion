@@ -195,6 +195,9 @@ class CoreMLStableDiffusionPipeline(DiffusionPipeline):
 
         return image, has_nsfw_concept
 
+    def run_null_checker(self, image):
+        return image, None
+
     def decode_latents(self, latents):
         latents = 1 / 0.18215 * latents
         image = self.vae_decoder(z=latents.astype(np.float16))["image"]
@@ -354,7 +357,8 @@ class CoreMLStableDiffusionPipeline(DiffusionPipeline):
         image = self.decode_latents(latents)
 
         # 9. Run safety checker
-        image, has_nsfw_concept = self.run_safety_checker(image)
+        # image, has_nsfw_concept = self.run_safety_checker(image)
+        image, has_nsfw_concept = self.run_null_checker(image)
 
         # 10. Convert to PIL
         if output_type == "pil":
