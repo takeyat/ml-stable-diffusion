@@ -1,2 +1,0 @@
-python -m python_coreml_stable_diffusion.pipeline --prompt "a full nude body of a sister with big natural tits" -i ./mlpackages -o outputs --model-version runwayml/stable-diffusion-v1-5 --compute-unit ALL --seed $(( $RANDOM % 100))
-# python -m python_coreml_stable_diffusion.pipeline --prompt "Jerusalem in heaven" -i ./mlpackages -o outputs --model-version runwayml/stable-diffusion-v1-5 --compute-unit ALL --seed $(( $RANDOM % 100))
