@@ -145,3 +145,6 @@ dmypy.json
 
 # mlpackages
 mlpackages/
+
+# outputs
+outputs/
