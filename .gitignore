@@ -148,4 +148,4 @@ mlpackages/
 
 # outputs
 outputs/
-test_pic.sh
+test_pic*.sh
