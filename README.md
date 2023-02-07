@@ -220,6 +220,10 @@ Both of these products require the Core ML models and tokenization resources to 
 - `vocab.json` (tokenizer vocabulary file)
 - `merges.text` (merges for byte pair encoding file)
 
+Optionally, for image2image, in-painting, or similar:
+
+- `VAEEncoder.mlmodelc` (image encoder model) 
+
 Optionally, it may also include the safety checker model that some versions of Stable Diffusion include:
 
 - `SafetyChecker.mlmodelc`
@@ -234,6 +238,8 @@ Note that the chunked version of Unet is checked for first. Only if it is not pr
   <summary> Click to expand </summary>
 
 🤗 Hugging Face created an [open-source demo app](https://github.com/huggingface/swift-coreml-diffusers) on top of this library. It's written in native Swift and Swift UI, and runs on macOS, iOS and iPadOS. You can use the code as a starting point for your app, or to see how to integrate this library in your own projects.
+
+Hugging Face has made the app [available in the Mac App Store](https://apps.apple.com/app/diffusers/id1666309574?mt=12).
 
 </details>
 
@@ -321,6 +327,7 @@ Differences may be less or more pronounced for different inputs. Please see the 
 <b> A3: </b>  In order to minimize the memory impact of the model conversion process, please execute the following command instead:
 
 ```bash
+python -m python_coreml_stable_diffusion.torch2coreml --convert-vae-encoder -o <output-mlpackages-directory> && \
 python -m python_coreml_stable_diffusion.torch2coreml --convert-vae-decoder -o <output-mlpackages-directory> && \
 python -m python_coreml_stable_diffusion.torch2coreml --convert-unet -o <output-mlpackages-directory> && \
 python -m python_coreml_stable_diffusion.torch2coreml --convert-text-encoder -o <output-mlpackages-directory> && \
